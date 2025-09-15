@@ -19,7 +19,7 @@
     <button class="nav-link" data-view="registro">Registro de tutoría</button>
     <button class="nav-link" data-view="historial">Historial</button>
     <button class="nav-link" data-view="reportes">Reportes</button>
-     <button class="nav-link" data-view="configuracion">Configuración</button>
+    <button class="nav-link" data-view="configuracion">Configuración</button>
   </nav>
     </aside>
 
@@ -116,6 +116,7 @@
               <div class="form-row">
                 <label>Modalidad atendida</label>
                 <select>
+                  <option>Selecciona...</option>
                   <option>Ambas</option>
                   <option>Presencial</option>
                   <option>Virtual</option>
@@ -160,15 +161,22 @@
             <div class="form-row">
               <label>Modalidad de trabajo</label>
               <div class="chips">
-                <label><input type="checkbox" checked /> Presencial</label>
-                <label><input type="checkbox" checked /> Virtual</label>
+                <select>
+                <option>Selecciona...</option>
+                <option>Virtual</option>
+                <option>Presencial</option>
+                <option>Ambas</option>
+              </select>
               </div>
             </div>
             <div class="form-row">
               <label>Canal principal</label>
               <div class="chips">
-                <label><input type="radio" name="canal" checked /> Correo institucional</label>
-                <label><input type="radio" name="canal" /> WhatsApp</label>
+                <select>
+                <option>Selecciona...</option>
+                <option>Correo institucional</option>
+                <option>WhatsApp</option>
+              </select>
               </div>
               <div class="hint">La UI valida disponibilidad del canal elegido (sin integración real).</div>
             </div>
