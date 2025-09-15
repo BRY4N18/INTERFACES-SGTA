@@ -64,6 +64,20 @@ body {
 .menu-item.active { background: #ffffff; border-color: #cfcfcf; color: #111; }
 .sidebar-footer { margin-top: auto; padding: 12px 16px; color: #777; border-top: 1px solid #dcdcdc; }
 
+/* Botón de cerrar sesión, fijo al pie del sidebar */
+.logout-button {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 1px solid #d8d8d8;
+  background: #ffffff;
+  color: #333;
+  cursor: pointer;
+}
+.logout-button:hover { background: #f5f5f5; }
+
 .main { margin-left: 260px; min-height: 100vh; }
 .topbar {
   position: sticky; top: 0; z-index: 10;
