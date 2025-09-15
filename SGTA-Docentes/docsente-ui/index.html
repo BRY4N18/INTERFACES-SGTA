@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SGTA - Docente</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">SGTA</div>
+  <nav>
+  <button class="nav-link active" data-view="inicio">Inicio</button>
+    <button class="nav-link" data-view="solicitudes">Solicitudes</button>
+    <button class="nav-link" data-view="registro">Registro de tutoría</button>
+    <button class="nav-link" data-view="historial">Historial</button>
+    <button class="nav-link" data-view="reportes">Reportes</button>
+     <button class="nav-link" data-view="configuracion">Configuración</button>
+  </nav>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div class="breadcrumbs"><strong>SGTA | Sistema de gestión de tutorías académicas</span></div>
+        <div class="user">
+          <span class="badge">REGULAR 2025-2026 PPA</span>
+          <div class="avatar">D</div>
+          <div>
+            <div class="name">Doc. Juan Pérez</div>
+            <div class="role">Docente</div>
+          </div>
+        </div>
+      </header>
+
+      <section id="view-inicio" class="view visible">
+        <h1>Inicio</h1>
+        <div class="panel">
+          <div class="panel-header">Resumen de tutorías académicas</div>
+          <div class="cards">
+            <div class="card"><div class="card-title">🕒 Solicitudes pendientes</div><div class="card-value">12</div><div class="card-sub">Esperando tu respuesta</div></div>
+            <div class="card"><div class="card-title">☑️ Tutorías realizadas</div><div class="card-value">5</div><div class="card-sub">Este semestre</div></div>
+            <div class="card"><div class="card-title">📅 Tutorías programadas</div><div class="card-value">6</div><div class="card-sub">Próximos 7 días</div></div>
+            <div class="card"><div class="card-title">🔁 Tutorías reprogramadas</div><div class="card-value">4</div><div class="card-sub">Reprogramaciones totales</div></div>
+            <div class="card"><div class="card-title">🚫 Tutorías rechazadas</div><div class="card-value">1</div><div class="card-sub">Este semestre</div></div>
+            <div class="card"><div class="card-title">👥 Estudiantes atendidos</div><div class="card-value">20</div><div class="card-sub">Total de estudiantes</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            Próximas tutorías
+            <div class="actions"><button class="btn btn-light" data-view-jump="solicitudes">Ver solicitudes</button></div>
+          </div>
+          <ul class="list">
+            <li>
+              <div>
+                <div class="list-title">Programación orientada a objetos — Hoy 15:30 - 16:00</div>
+                <div class="list-sub">Estudiante: Bryan Humberto Lombeyda Escaleras • Tipo: Individual • Modalidad: Presencial</div>
+              </div>
+              <div><button class="btn btn-light" data-open="modal-detalle-solicitud" data-context="inicio"
+                data-estudiante="Bryan Humberto Lombeyda Escaleras"
+                data-asignatura="Programación orientada a objetos"
+                data-tema="Archivos binarios"
+                data-descripcion="Necesito ayuda para entender como se gestiona un archivo binario."
+                data-fecha="13/09/2025"
+                data-hora="15:30 - 16:00"
+                data-modalidad="Presencial"
+                data-tipo="Individual"
+                data-estado="Aceptada"
+              >Ver detalles</button></div>
+            </li>
+            <li>
+              <div>
+                <div class="list-title">Algoritmos y lógicas de programación — Mañana 14:00 - 15:00</div>
+                <div class="list-sub">Estudiante: Luis Mario Zambrano Parraga • Tipo: Individual • Modalidad: Virtual</div>
+              </div>
+              <div><button class="btn btn-light" data-open="modal-detalle-solicitud" data-context="inicio"
+                data-estudiante="Luis Mario Zambrano Parraga"
+                data-asignatura="Algoritmos y lógicas de programación"
+                data-tema="Estructuras de control"
+                data-descripcion="Consulta sobre buenas prácticas al diseñar algoritmos."
+                data-fecha="14/09/2025"
+                data-hora="14:00 - 15:00"
+                data-modalidad="Virtual"
+                data-tipo="Individual"
+                data-estado="Aceptada"
+              >Ver detalles</button></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Configuración: Disponibilidad y Notificaciones unidas en una sola vista -->
+      <section id="view-configuracion" class="view">
+        <h1>Configuración</h1>
+        <div class="panel">
+          <div class="panel-header">Disponibilidad</div>
+          <div class="grid-2">
+            <form class="card form">
+              <div class="form-row">
+                <label>Fecha</label>
+                <input type="date" />
+              </div>
+              <div class="form-row">
+                <label>Hora inicio</label>
+                <input type="time" />
+              </div>
+              <div class="form-row">
+                <label>Hora fin</label>
+                <input type="time" />
+              </div>
+              <div class="form-row">
+                <label>Modalidad atendida</label>
+                <select>
+                  <option>Ambas</option>
+                  <option>Presencial</option>
+                  <option>Virtual</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label>Observación (opcional)</label>
+                <input type="text" placeholder="Observaciones" />
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn">Agregar franja</button>
+                <button type="button" class="btn btn-light">Limpiar</button>
+              </div>
+              <div class="hint">El sistema validará solapamientos de forma automática (UI demostrativa).</div>
+            </form>
+
+            <div class="card">
+              <div class="panel-header">Franjas registradas</div>
+              <div class="table-wrapper">
+                <table class="table">
+                  <thead>
+                    <tr><th>Fecha</th><th>Inicio</th><th>Fin</th><th>Modalidad</th><th>Estado</th><th></th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>18/09/2025</td><td>09:00</td><td>11:00</td><td>Ambas</td><td>Disponible</td>
+                      <td class="t-actions"><button class="btn btn-icon" title="Editar">✏️</button><button class="btn btn-icon" title="Eliminar">🗑️</button></td>
+                    </tr>
+                      <td>18/09/2025</td><td>18:30</td><td>20:00</td><td>Virtual</td><td>Disponible</td>
+                      <td class="t-actions"><button class="btn btn-icon" title="Resolver">✏️</button><button class="btn btn-icon" title="Eliminar">🗑️</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">Notificaciones</div>
+          <form class="card form">
+            <div class="form-row">
+              <label>Modalidad de trabajo</label>
+              <div class="chips">
+                <label><input type="checkbox" checked /> Presencial</label>
+                <label><input type="checkbox" checked /> Virtual</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Canal principal</label>
+              <div class="chips">
+                <label><input type="radio" name="canal" checked /> Correo institucional</label>
+                <label><input type="radio" name="canal" /> WhatsApp</label>
+              </div>
+              <div class="hint">La UI valida disponibilidad del canal elegido (sin integración real).</div>
+            </div>
+            <div class="form-row">
+              <label>Frecuencia</label>
+              <select>
+                <option>1 dia antes</option>
+                <option>3 horas antes</option>
+                <option>1 hora antes</option>
+                <option>30 minutos antes</option>
+                <option>10 minutos antes</option>
+              </select>
+            </div>
+            <div class="form-actions"><button type="button" class="btn">Guardar preferencias</button></div>
+          </form>
+        </div>
+      </section>
+
+  <section id="view-solicitudes" class="view">
+        <h1>Solicitudes</h1>
+        <div class="card" style="padding:12px;display:flex;gap:12px;align-items:center;justify-content:space-between">
+          <div style="display:flex;gap:8px;align-items:center;flex:1">
+            <input id="sol-search" type="text" placeholder="Buscar..." style="flex:1;padding:10px 12px;border:1px solid #d1d5db;border-radius:10px;" />
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button id="sol-filters-toggle" class="btn btn-light" type="button">Filtros</button>
+          </div>
+        </div>
+
+        <!-- Panel plegable de filtros múltiples -->
+        <div id="sol-filters-panel" class="card form" style="display:none; margin:12px 0;">
+          <div class="panel-header">Filtros avanzados</div>
+          <div class="grid-2" style="gap:12px">
+            <div>
+              <div class="form-row"><label>Asignatura</label>
+                <select id="sol-f-asig">
+                  <option value="Todos" selected>Todos</option>
+                  <option value="Programación orientada a objetos">Programación orientada a objetos</option>
+                  <option value="Base de Datos II">Base de Datos II</option>
+                  <option value="POO">POO</option>
+                </select>
+              </div>
+              <div class="form-row"><label>Tema</label>
+                <select id="sol-f-tema">
+                  <option value="Todos" selected>Todos</option>
+                  <option value="Archivos binarios">Archivos binarios</option>
+                  <option value="Normalización">Normalización</option>
+                  <option value="Interfaces">Interfaces</option>
+                </select>
+              </div>
+              <div class="form-row"><label>Modalidad</label>
+                <select id="sol-f-mod">
+                  <option value="Todos" selected>Todos</option>
+                  <option value="Presencial">Presencial</option>
+                  <option value="Virtual">Virtual</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <div class="form-row"><label>Tipo</label>
+                <select id="sol-f-tipo">
+                  <option value="Todos" selected>Todos</option>
+                  <option value="Individual">Individual</option>
+                  <option value="Grupal">Grupal</option>
+                </select>
+              </div>
+              <div class="form-row"><label>Estado</label>
+                <select id="sol-f-estado">
+                  <option value="Todos" selected>Todos</option>
+                  <option value="Pendiente">Pendiente</option>
+                  <option value="Aceptada">Aceptada</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions" style="justify-content:flex-end">
+            <button id="sol-clear-filters" type="button" class="btn btn-light">Limpiar</button>
+            <button id="sol-apply-filters" type="button" class="btn">Aplicar filtros</button>
+          </div>
+        </div>
+
+        <div class="table-wrapper card">
+          <table class="table" id="tabla-solicitudes">
+            <thead>
+              <tr>
+                <th>Fecha solicitada</th>
+                <th>Asignatura</th>
+                <th>Tema</th>
+                <th>Modalidad</th>
+                <th>Tipo</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>13/09/2025</td>
+                <td>Programación orientada a objetos</td>
+                <td>Archivos binarios</td>
+                <td>Presencial</td>
+                <td>Individual</td>
+                <td><span class="badge">Pendiente</span></td>
+                <td class="t-actions">
+                  <button class="btn btn-light btn-xs" data-open="modal-detalle-solicitud"
+                    data-estudiante="Bryan Humberto Lombeyda Escaleras"
+                    data-asignatura="Programación orientada a objetos"
+                    data-tema="Archivos binarios"
+                    data-descripcion="Necesito ayuda para entender como se gestiona un archivo binario."
+                    data-fecha="13/09/2025"
+                    data-hora="15:30 - 16:00"
+                    data-modalidad="Presencial"
+                    data-tipo="Individual"
+                    data-estado="Pendiente"
+                  >Ver detalles</button>
+                </td>
+              </tr>
+              <tr>
+                <td>14/09/2025</td>
+                <td>Base de Datos II</td>
+                <td>Normalización</td>
+                <td>Presencial</td>
+                <td>Grupal</td>
+                <td><span class="badge badge-green">Aceptada</span></td>
+                <td class="t-actions">
+                  <button class="btn btn-light btn-xs" data-open="modal-detalle-solicitud"
+                    data-estudiante="Grupo 3 (5)"
+                    data-asignatura="Base de Datos II"
+                    data-tema="Normalización"
+                    data-descripcion="Sesión para afianzar conceptos de 3FN."
+                    data-fecha="14/09/2025"
+                    data-hora="11:00 - 12:00"
+                    data-modalidad="Presencial"
+                    data-tipo="Grupal"
+                    data-estado="Aceptada"
+                  >Ver detalles</button>
+                </td>
+              </tr>
+              <tr>
+                <td>12/09/2025</td>
+                <td>POO</td>
+                <td>Interfaces</td>
+                <td>Virtual</td>
+                <td>Individual</td>
+                <td><span class="badge">Pendiente</span></td>
+                <td class="t-actions">
+                  <button class="btn btn-light btn-xs" data-open="modal-detalle-solicitud"
+                    data-estudiante="Ana C."
+                    data-asignatura="POO"
+                    data-tema="Interfaces"
+                    data-descripcion="Dudas sobre implementación de interfaces."
+                    data-fecha="12/09/2025"
+                    data-hora="10:00 - 11:00"
+                    data-modalidad="Virtual"
+                    data-tipo="Individual"
+                    data-estado="Pendiente"
+                  >Ver detalles</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Panel integrado: Agrupar solicitudes (antes Sesiones grupales) -->
+        <div class="panel" style="margin-top:16px">
+          <div class="panel-header">Agrupar solicitudes</div>
+          <div class="filters card">
+            <div class="form-row"><label>Semestre</label><select><option>Todos</option><option>4to</option><option>5to</option></select></div>
+            <div class="form-row"><label>Inquietud</label><input type="text" placeholder="Tema similar" /></div>
+            <div class="form-row"><label>Tipo</label><select><option>Todos</option><option>Grupal</option><option>Individual</option></select></div>
+            <div class="form-row"><label>Modalidad</label><select><option>Todas</option><option>Presencial</option><option>Virtual</option></select></div>
+          </div>
+          <div class="grid-2">
+            <div class="card">
+              <div class="panel-header">Solicitudes similares</div>
+              <ul class="list">
+                <li>
+                  <div>
+                    <div class="list-title">BD II - Normalización</div>
+                    <div class="list-sub">Semestre: 4to • Tipo: Grupal • Modalidad: Presencial</div>
+                  </div>
+                  <div><button class="btn btn-xs">Añadir a agrupación</button></div>
+                </li>
+                <li>
+                  <div>
+                    <div class="list-title">Programación - Herencia</div>
+                    <div class="list-sub">Semestre: 4to • Tipo: Individual • Modalidad: Virtual</div>
+                  </div>
+                  <div><button class="btn btn-xs">Añadir a agrupación</button></div>
+                </li>
+              </ul>
+            </div>
+            <form class="card form">
+              <div class="panel-header">Definir horario para agrupación</div>
+              <div class="form-row"><label>Fecha</label><input type="date"/></div>
+              <div class="form-row"><label>Hora</label><input type="time" /></div>
+              <div class="form-row"><label>Duración estimada</label><input type="number" placeholder="minutos" /></div>
+              <div class="form-row"><label>Modalidad</label><select><option>Presencial</option><option>Virtual</option></select></div>
+              <div class="form-row"><label>Espacio requerido</label><select><option>Aula estándar</option><option>Laboratorio</option><option>Otro</option></select></div>
+              <div class="form-row"><label>Solicitudes seleccionadas</label>
+                <div class="chips">
+                  <span class="badge">BD II - Normalización</span>
+                  <span class="badge">Programación - Herencia</span>
+                </div>
+                <div class="hint">Listado demostrativo; las solicitudes se añaden desde la lista de la izquierda.</div>
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn">Confirmar agrupación</button>
+              </div>
+              <div class="hint">Esta interfaz no crea nuevas sesiones; agrupa solicitudes existentes y define un horario común (demo).</div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      
+  <section id="view-registro" class="view">
+        <h1>Registro de tutoría</h1>
+        <div class="grid-2">
+          <form class="card form">
+            <div class="form-row"><label>Sesión</label>
+              <select>
+                <option>Selecciona...</option>
+                <option>10/09 10:00 - POO (Individual)</option>
+                <option>08/09 11:30 - BD II (Grupal)</option>
+              </select>
+            </div>
+            <div class="form-row"><label>Duración (min)</label><input type="number" placeholder="Ej. 60" /></div>
+            <div class="form-row"><label>Asistentes</label>
+              <div class="chips">
+                <label><input type="checkbox" checked /> Ana C.</label>
+                <label><input type="checkbox" /> Luis M.</label>
+                <label><input type="checkbox" /> Grupo 3 (5)</label>
+              </div>
+            </div>
+            <div class="form-row"><label>Observaciones</label><textarea rows="4" placeholder="Notas de la sesión..." ></textarea></div>
+            <div class="form-actions"><button type="button" class="btn">Guardar registro</button></div>
+          </form>
+
+          <div class="card">
+            <div class="panel-header">Sesiones pasadas aceptadas</div>
+            <ul class="list">
+              <li>
+                <div>
+                  <div class="list-title">POO - Herencia</div>
+                  <div class="list-sub">10/09/2025 • 10:00 • Individual • Virtual</div>
+                </div>
+                <div><span class="badge badge-green">Aceptada</span></div>
+              </li>
+              <li>
+                <div>
+                  <div class="list-title">BD II - Normalización</div>
+                  <div class="list-sub">08/09/2025 • 11:30 • Grupal • Presencial</div>
+                </div>
+                <div><span class="badge badge-green">Aceptada</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+  <section id="view-historial" class="view">
+        <h1>Historial</h1>
+        <div class="cards">
+          <div class="card"><div class="card-title">Tasa aceptación</div><div class="card-value">80%</div></div>
+          <div class="card"><div class="card-title">Prom. duración</div><div class="card-value">55 min</div></div>
+          <div class="card"><div class="card-title">Sesiones Mes</div><div class="card-value">14</div></div>
+        </div>
+        <div class="table-wrapper card">
+          <table class="table">
+            <thead><tr><th>Fecha</th><th>Asignatura</th><th>Tema</th><th>Tipo</th><th>Modalidad</th><th>Asistentes</th><th>Duración</th></tr></thead>
+            <tbody>
+              <tr><td>10/09/2025</td><td>POO</td><td>Interfaces</td><td>Individual</td><td>Virtual</td><td>1</td><td>60</td></tr>
+              <tr><td>08/09/2025</td><td>BD II</td><td>Índices</td><td>Grupal</td><td>Presencial</td><td>5</td><td>45</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      
+
+      <section id="view-reportes" class="view">
+        <h1>Reportes</h1>
+        <div class="grid-2">
+          <div class="card form">
+            <div class="panel-header">Filtros</div>
+            <div class="form-row"><label>Asignatura</label><select id="report-asignatura"><option value="todas">Todas</option><option value="POO">POO</option><option value="BD II">BD II</option></select></div>
+            <div class="form-row"><label>Grupo</label><select id="report-grupo"><option value="todos">Todos</option><option value="Grupo 1">Grupo 1</option><option value="Grupo 3">Grupo 3</option></select></div>
+            <div class="form-row"><label>Tema</label><select id="report-tema"><option value="todas">Todas</option><option value="Herencia">Herencia</option><option value="Normalización">Normalización</option></select></div>
+            <div class="form-actions"><button id="btn-generar-reporte" type="button" class="btn">Generar reporte</button></div>
+          </div>
+        </div>
+        <div class="card" id="report-output" style="margin-top:16px">
+          <div class="panel-header">Reporte generado</div>
+          <div class="hint" id="report-hint">Usa los filtros y pulsa “Generar reporte”.</div>
+          <div class="table-wrapper">
+            <table class="table" id="report-table">
+              <thead>
+                <tr><th>Fecha</th><th>Asignatura</th><th>Tema</th><th>Tipo</th><th>Modalidad</th><th>Grupo</th><th>Asistentes</th><th>Duración</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <!-- Exportar al pie del reporte -->
+          <div class="report-export" style="display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #e5e7eb;margin-top:12px;padding-top:12px">
+            <div style="font-weight:600;color:#374151">Exportar</div>
+            <div class="export">
+              <button class="btn" data-export="pdf">Exportar PDF</button>
+              <button class="btn btn-light" data-export="excel">Exportar Excel</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="modal-aceptar" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">Aceptar solicitud<button class="close" data-close>×</button></div>
+      <div class="modal-body form">
+        <div class="form-row"><label>Duración estimada (min)</label><input type="number" placeholder="Ej. 60" /></div>
+        <div class="form-row"><label>Modalidad</label><select><option>Presencial</option><option>Virtual</option></select></div>
+        <div class="form-row"><label>Espacio físico</label><select><option>Aula estándar</option><option>Laboratorio</option></select></div>
+        <div class="form-row"><label>Validación SGA</label>
+          <div style="display:flex; gap:8px; align-items:center">
+            <input id="sga-status" type="text" disabled value="Disponible" class="ok" />
+            <button type="button" class="btn btn-light btn-xs" id="btn-sga-error">Simular error</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn" data-close>Aceptar</button></div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-proponer" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">Proponer nueva fecha y hora<button class="close" data-close>×</button></div>
+      <div class="modal-body form">
+        <div class="form-row"><label>Fecha</label><input type="text" placeholder="dd/mm/aaaa" /></div>
+        <div class="form-row"><label>Hora</label><input type="time" /></div>
+        <div class="form-row"><label>Comentario</label><input type="text" placeholder="Motivo (opcional)" /></div>
+      </div>
+      <div class="modal-footer"><button class="btn" data-close>Enviar propuesta</button></div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-detalle-solicitud" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">Detalles de solicitud<button class="close" data-close>×</button></div>
+      <div class="modal-body">
+        <div class="detail-grid">
+          <div class="detail-item"><div class="detail-label">Estudiante</div><div class="detail-value" id="det-estudiante">—</div></div>
+          <div class="detail-item"><div class="detail-label">Asignatura</div><div class="detail-value" id="det-asignatura">—</div></div>
+          <div class="detail-item"><div class="detail-label">Tema/Motivo</div><div class="detail-value" id="det-tema">—</div></div>
+          <div class="detail-item"><div class="detail-label">Descripción</div><div class="detail-value" id="det-descripcion">—</div></div>
+          <div class="detail-row">
+            <div>
+              <div class="detail-label">Fecha solicitada</div>
+              <div class="detail-value" id="det-fecha">—</div>
+            </div>
+            <div>
+              <div class="detail-label">Hora solicitada</div>
+              <div class="detail-value" id="det-hora">—</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <div>
+              <div class="detail-label">Modalidad</div>
+              <div class="detail-value" id="det-modalidad">—</div>
+            </div>
+            <div>
+              <div class="detail-label">Tipo</div>
+              <div class="detail-value" id="det-tipo">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-actions" style="border-top:1px solid #e5e7eb;margin-top:12px;padding-top:12px;display:grid;gap:8px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-xs" id="btn-det-aceptar">Aceptar tutoría</button>
+            <button class="btn btn-danger btn-xs" id="btn-det-rechazar">Rechazar tutoría</button>
+            <button class="btn btn-light btn-xs" id="btn-det-reprogramar">Reprogramar solicitud</button>
+          </div>
+          <div id="area-rechazo" style="display:none">
+            <div class="form-row"><label>Motivo del rechazo</label><textarea id="txt-motivo-rechazo" rows="3" placeholder="Explique el motivo..."></textarea></div>
+            <div class="form-actions"><button class="btn btn-danger btn-xs" id="confirmar-rechazo">Confirmar rechazo</button></div>
+          </div>
+          <div id="area-reprogramar" style="display:none">
+            <div class="form-row"><label>Nueva fecha</label><input id="rep-fecha" type="date"/></div>
+            <div class="form-row"><label>Nueva hora</label><input id="rep-hora" type="time"/></div>
+            <div class="form-actions"><button class="btn btn-xs" id="confirmar-reprogramar">Confirmar reprogramación</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-rechazar" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">Rechazar solicitud<button class="close" data-close>×</button></div>
+      <div class="modal-body form">
+        <div class="form-row"><label>Motivo</label><textarea rows="4" placeholder="Explique el motivo..." ></textarea></div>
+        <div class="hint">Solo permitido si fue previamente aceptada y surgió un imprevisto.</div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-danger" data-close>Rechazar</button></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" aria-hidden="true">Acción realizada</div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

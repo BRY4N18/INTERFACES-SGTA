@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SGTA - Selección de Actor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="login-hero">
+    <div class="login-card" role="dialog" aria-labelledby="appTitle">
+      <header class="login-header">
+        <div class="logo">
+          <span class="logo-ute">SGTA</span>
+        </div>
+        <div class="app-title">
+          <div id="appTitle" class="app-title-1">Sistema de Gestión</div>
+          <div class="app-title-2">de Tutorías Académicas</div>
+        </div>
+      </header>
+
+      <form id="formLogin" class="form" autocomplete="off">
+        <div class="form-row">
+          <input id="usuario" name="usuario" type="text" placeholder="Usuario" required />
+        </div>
+        <div class="form-row">
+          <input id="contrasena" name="contrasena" type="password" placeholder="Contraseña" required />
+        </div>
+        <div class="form-actions col-2">
+          <button class="btn btn-green" type="submit">Iniciar Sesión</button>
+        </div>
+      </form>
+
+      <div class="actor-select">
+        <button class="chip" data-actor="estudiante">Estudiante</button>
+        <button class="chip" data-actor="coordinacion">Coordinador</button>
+        <button class="chip" data-actor="docente">Docente</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

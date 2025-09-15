@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGTA | Coordinación</title>
+    <link rel="stylesheet" href="../SGTA/assets/css/base.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>SGTA</h2>
+        <nav>
+            <ul class="sidebar-menu">
+                <li><span id="dashboardBtn" class="sidebar-link active">Inicio</span></li>
+                <li><span id="reportesBtn" class="sidebar-link">Reportes</span></li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-title">SGTA | Sistema de gestión de tutorías académicas</span>
+                <span class="brand-divider"></span>
+            </div>
+            <div class="topbar-right">
+                <span class="period-badge">REGULAR 2025-2026 PPA</span>
+                <div class="user-chip">
+                    <span class="avatar">D</span>
+                    <div class="user-meta">
+                        <span class="user-name">Doc. Juan Pérez</span>
+                        <span class="user-role">Docente</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <h1 id="mainTitle" class="page-title">Inicio</h1>
+        <section id="dashboardSection" class="section active">
+            <div class="stats-wrapper">
+                <h2 class="stats-title">Resumen de tutorías académicas</h2>
+                <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-icon" aria-hidden="true">☑️</span>
+                        <span class="stat-title">Tutorías realizadas</span>
+                    </div>
+                    <span class="stat-value" id="realizadas">5</span>
+                    <span class="stat-subtitle">Este semestre</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-icon" aria-hidden="true">�</span>
+                        <span class="stat-title">Tutorías rechazadas</span>
+                    </div>
+                    <span class="stat-value" id="rechazadas">1</span>
+                    <span class="stat-subtitle">Este semestre</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <span class="stat-icon" aria-hidden="true">⏱️</span>
+                        <span class="stat-title">Horas de tutoría</span>
+                    </div>
+                    <span class="stat-value" id="horas">18</span>
+                    <span class="stat-subtitle">Acumuladas este semestre</span>
+                </div>
+                </div>
+            </div>
+            <div class="dashboard-charts dashboard-charts-row">
+                <div class="chart-card">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </section>
+        <section id="reportesSection" class="section">
+            <form id="reportForm" class="report-form">
+                <label>Docente:
+                    <select name="docente" id="docenteSelect">
+                        <option value="">Todos</option>
+                        <option value="Juan Pérez">Juan Pérez</option>
+                        <option value="María López">María López</option>
+                    </select>
+                </label>
+                <label>Asignatura:
+                    <select name="asignatura" id="asignaturaSelect">
+                        <option value="">Todas</option>
+                        <option value="Matemáticas">Matemáticas</option>
+                        <option value="Física">Física</option>
+                        <option value="Programación Orientada a Objetos">Programación Orientada a Objetos</option>
+                    </select>
+                </label>
+                <label>Tema/Motivo:
+                    <select name="temaMotivo" id="temaMotivoSelect">
+                        <option value="">Todos</option>
+                        <option value="Álgebra">Álgebra</option>
+                        <option value="Cinemática">Cinemática</option>
+                        <option value="DEMO Reprogramada">DEMO Reprogramada</option>
+                    </select>
+                </label>
+                <label>Modalidad:
+                    <select name="modalidad" id="modalidadSelect">
+                        <option value="">Todas</option>
+                        <option value="Presencial">Presencial</option>
+                        <option value="Virtual">Virtual</option>
+                    </select>
+                </label>
+                <label>Tipo de sesión:
+                    <select name="tipoSesion" id="tipoSesionSelect">
+                        <option value="">Todas</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Grupal">Grupal</option>
+                    </select>
+                </label>
+                <label>Estado:
+                    <select name="estado" id="estadoSelect">
+                        <option value="">Todos</option>
+                        <option value="Aceptada">Aceptada</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Rechazada">Rechazada</option>
+                        <option value="Reprogramada">Reprogramada</option>
+                    </select>
+                </label>
+                <div class="report-actions">
+                    <button type="button" id="filtrarBtn">Generar reporte</button>
+                </div>
+            </form>
+            <div class="report-table-container">
+                <h3 style="margin-top:0">Reporte generado</h3>
+                <p style="color:#4a5568;margin-bottom:8px">Usa los filtros y pulsa “Generar reporte”.</p>
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>FECHA</th>
+                            <th>HORA</th>
+                            <th>ASIGNATURA</th>
+                            <th>DOCENTE</th>
+                            <th>TEMA/MOTIVO</th>
+                            <th>MODALIDAD</th>
+                            <th>TIPO DE SESIÓN</th>
+                            <th>ESTADO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportTableBody">
+                        <!-- Resultados filtrados aquí -->
+                    </tbody>
+                </table>
+                <div class="export-actions">
+                    <span class="export-label">Exportar</span>
+                    <button type="button" id="pdfBtn" class="btn btn-primary">Exportar PDF</button>
+                    <button type="button" id="excelBtn" class="btn btn-outline">Exportar Excel</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
