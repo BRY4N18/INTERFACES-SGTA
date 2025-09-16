@@ -219,4 +219,15 @@
       if(panel) panel.style.display = 'none';
     }
   });
+
+  // Mostrar/ocultar campo "Otro" para Espacio requerido en Agrupar solicitudes
+  const selEspacio = document.getElementById('agr-espacio');
+  const inpEspacioOtro = document.getElementById('agr-espacio-otro');
+  const syncEspacio = ()=>{
+    if(!selEspacio || !inpEspacioOtro) return;
+    const isOtro = selEspacio.value === 'Otro';
+    inpEspacioOtro.classList.toggle('hidden', !isOtro);
+    if(!isOtro) inpEspacioOtro.value = '';
+  };
+  if(selEspacio){ selEspacio.addEventListener('change', syncEspacio); syncEspacio(); }
 })();

@@ -222,7 +222,9 @@ function handleSubmitSolicitud(e) {
   const estudiante = 'Ana García';
   const asignatura = $('#asignatura').value;
   const docenteId = $('#docente').value;
-  const tema = $('#tema').value.trim();
+  const temaSel = $('#tema').value;
+  const temaOtro = ($('#tema-otro')?.value || '').trim();
+  const tema = (temaSel === 'otro') ? temaOtro : ($('#tema').value || '').trim();
   const tipo = $('#tipo').value;
   const modalidad = $('#modalidad').value;
   const fechaKey = toKey($('#fecha').value);
@@ -637,6 +639,25 @@ function init() {
   // por defecto, ajustar fecha del formulario a hoy
   const hoy = new Date();
   $('#fecha').valueAsDate = hoy;
+
+  // Mostrar/ocultar campo "Otro" en tema
+  const temaSelEl = document.getElementById('tema');
+  const temaOtroField = document.getElementById('tema-otro-field');
+  const temaOtroInput = document.getElementById('tema-otro');
+  if (temaSelEl && temaOtroField) {
+    const syncTemaOtro = () => {
+      const isOtro = temaSelEl.value === 'otro';
+      temaOtroField.classList.toggle('hidden', !isOtro);
+      if (temaOtroInput) temaOtroInput.required = isOtro;
+      if (!isOtro) { if (temaOtroInput) temaOtroInput.value = ''; }
+    };
+    temaSelEl.addEventListener('change', syncTemaOtro);
+    // inicial
+    syncTemaOtro();
+    // al resetear el formulario, ocultar el campo
+    const form = document.getElementById('form-solicitud');
+    if (form) form.addEventListener('reset', () => setTimeout(syncTemaOtro, 0));
+  }
 }
 
 document.addEventListener('DOMContentLoaded', init);

@@ -377,7 +377,16 @@
               <div class="form-row"><label>Hora</label><input type="time" /></div>
               <div class="form-row"><label>Duración estimada</label><input type="number" placeholder="minutos" /></div>
               <div class="form-row"><label>Modalidad</label><select><option>Presencial</option><option>Virtual</option></select></div>
-              <div class="form-row"><label>Espacio requerido</label><select><option>Aula estándar</option><option>Laboratorio</option><option>Otro</option></select></div>
+              <div class="form-row"><label>Espacio requerido</label>
+                <div style="display:flex; gap:8px; align-items:center; width:100%">
+                  <select id="agr-espacio">
+                    <option value="Aula estándar">Aula estándar</option>
+                    <option value="Laboratorio">Laboratorio</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                  <input id="agr-espacio-otro" class="hidden" type="text" placeholder="Especifica el espacio" style="flex:1" />
+                </div>
+              </div>
               <div class="form-row"><label>Solicitudes seleccionadas</label>
                 <div class="chips">
                   <span class="badge">BD II - Normalización</span>

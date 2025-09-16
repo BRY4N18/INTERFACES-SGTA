@@ -123,6 +123,12 @@
                 <option value="otro">Otro</option>
               </select>
             </div>
+            <!-- Campo mostrado solo cuando el usuario elige "Otro" -->
+            <div class="form-field full hidden" id="tema-otro-field">
+              <label for="tema-otro">Especifica el tema</label>
+              <input type="text" id="tema-otro" placeholder="Describe el tema o motivo" />
+              <small class="help">Escribe el tema de tu tutoría</small>
+            </div>
             <div class="form-field">
               <label for="tipo">Tipo de sesión</label>
               <select id="tipo" required>
