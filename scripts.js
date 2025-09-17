@@ -5,9 +5,9 @@
   const form = document.getElementById('formLogin');
 
   const routes = {
-    estudiante: '/SGTA-Estudiantes/index.html',
-    docente: '/SGTA-Docentes/docsente-ui/index.html',
-    coordinacion: '/SGTA-Coordinacion/index.html'
+    estudiante: 'SGTA-Estudiantes/index.html',
+    docente: 'SGTA-Docentes/docsente-ui/index.html',
+    coordinacion: 'SGTA-Coordinacion/index.html'
   };
 
   function showToast(msg){
